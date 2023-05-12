@@ -39,32 +39,9 @@ public class CartDaoMem implements CartDao {
     }
 
     @Override
-//    public void add(Product product) {
-//        data.add(product);
-//    }
     public void add (Product product) {
         dataMap.merge(product, 1, Integer::sum);
     }
-
-    @Override
-    public void addQuantity(Product product, Integer quantity) {
-        dataMap.put(product, quantity);
-    }
-
-
-//    @Override
-//    public Product find(int id) {
-//        return data.stream().filter(t -> t.getId() == id).findFirst().orElse(null);
-//    }
-
-
-    @Override
-    public void removeAll () {
-        this.dataMap = null;
-    }
-//    public void remove(int id) {
-//        data.remove(find(id));
-//    }
 
 
     public void removeOne (Product product) {
