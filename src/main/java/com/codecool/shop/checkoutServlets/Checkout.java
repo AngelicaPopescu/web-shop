@@ -2,7 +2,6 @@ package com.codecool.shop.checkoutServlets;
 
 import com.codecool.shop.config.TemplateEngineUtil;
 import com.codecool.shop.dao.implementation.CartDaoMem;
-import com.codecool.shop.payment.OrderDetail;
 import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.WebContext;
 
@@ -26,8 +25,6 @@ import java.io.IOException;
             String products = CartDaoMem.getInstance().getAllProducts();
             context.setVariable("products", products);
             context.setVariable("sum", sum);
-
             engine.process("checkout/checkout.html", context, resp.getWriter());
-
         }
     }

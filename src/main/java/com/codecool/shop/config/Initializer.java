@@ -3,14 +3,12 @@ package com.codecool.shop.config;
 import com.codecool.shop.dao.ProductCategoryDao;
 import com.codecool.shop.dao.ProductDao;
 import com.codecool.shop.dao.SupplierDao;
-import com.codecool.shop.dao.implementation.CartDaoMem;
 import com.codecool.shop.dao.implementation.ProductCategoryDaoMem;
 import com.codecool.shop.dao.implementation.ProductDaoMem;
 import com.codecool.shop.dao.implementation.SupplierDaoMem;
 import com.codecool.shop.model.Product;
 import com.codecool.shop.model.ProductCategory;
 import com.codecool.shop.model.Supplier;
-import com.codecool.shop.model.Cart;
 
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
@@ -39,7 +37,7 @@ public class Initializer implements ServletContextListener {
         productCategoryDataStore.add(lego);
         ProductCategory doll = new ProductCategory("Doll", "Toys", "Toy for girls");
         productCategoryDataStore.add(doll);
-        ProductCategory car = new ProductCategory("Car", "Toy","Toys for boy");
+        ProductCategory car = new ProductCategory("Car", "Toy", "Toys for boy");
         productCategoryDataStore.add(car);
 
         productDataStore.add(new Product("LEGO Star Wars - Dark Trooper Attack", new BigDecimal("68.99"), "USD",
@@ -48,7 +46,7 @@ public class Initializer implements ServletContextListener {
                 "Personalized and portable, the LEGO Harry Potter Hogwarts Magical Trunk for ages 8+.", lego, legoWorld));
         productDataStore.add(new Product("LEGO DUPLO My First Alphabet Truck", new BigDecimal("42.40"), "USD",
                 "With the LEGO DUPLO Alphabet Truck, preschoolers can combine creative building.", lego, duplo));
-        productDataStore.add(new Product("Disney Princess Magic Travel Toy", new BigDecimal("35.01") , "USD",
+        productDataStore.add(new Product("Disney Princess Magic Travel Toy", new BigDecimal("35.01"), "USD",
                 "With Cinderella, Jasmine, Rapunzel Mini Dolls, Toy Horse & Carriage, Flying Rug, Hot Air Balloon for Girls and Boys.", lego, barbie));
         productDataStore.add(new Product("Barbie Travel Doll", new BigDecimal("30.00"), "USD",
                 "Send curious minds around the world with Barbie doll and a travel-themed set inspired by " +

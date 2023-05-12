@@ -65,7 +65,7 @@
     background: transparent;
     justify-content: center;
     display: grid;
-    grid-template-columns: 250px 250px 250px 250px;
+    grid-template-columns: 350px 350px 350px 350px;
     grid-gap: 10px;
     padding: 10px;
 
@@ -90,7 +90,7 @@ header {
     height: 200px;
 }
 
-body {
+#index-content {
     background-color: powderblue;
 
 }
@@ -103,7 +103,7 @@ body {
     margin: 0;
     padding: 0;
     list-style-type: none;
-    background-image:url("nav-image.jpg");
+    background-image: url("nav-image.jpg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -145,7 +145,7 @@ body {
     .sidenav a {font-size: 18px}
 }
 
-.container {
+.page-container {
     margin: 0;
     padding: 0;
 }
@@ -153,8 +153,7 @@ body {
 .grid-container {
     position: relative;
     width: 600px;
-    margin-left: 25%;
-    left: 20%;
+    margin-left: calc(250px + 30%); /* 200px is the width of navbar, 5% is extra padding */
 }
 
 .card-img-top {
@@ -174,4 +173,8 @@ body {
 .card-footer {
     display: flex;
     justify-content: space-between;
+}
+
+#inner-body {
+    align-items: center;
 }

@@ -37,68 +37,62 @@
 </head>
 
 <body>
-
-<div id="banner" class="jumbotron text-right">
-    <form action="cart" method="get">
-        <button style="font-size:40px"><i class="fa fa-shopping-cart"></i></button>
-    </form>
-    <!--    <div id="header-auth">-->
-    <!--        <a id="bt-register" href="/register">Register</a>-->
-    <!--        <button type="button" id="bt-login">Login</button>-->
-    <!--    </div>-->
-</div>
-
-<div class="container">
-    <!--    <div class="card">-->
-    <!--        <strong th:text="${category.name}">Category Title</strong>-->
-    <!--    </div>-->
-    <div id="navbar" class="sidenav">
-        <div class="my-navbar">
-            <a href="/">Products</a>
-            <button class="dropdown-btn category">Category
-                <i class="bi bi-caret-down-fill"></i>
-            </button>
-            <div class="dropdown-container">
-                <div th:each="category,iterStat : ${categories}">
-                    <div><a th:href="'/index?category=' + ${category.id}" th:text="${category.name}"></a></div>
-                </div>
-            </div>
-            <button class="dropdown-btn supplier">Supplier
-                <i class="bi bi-caret-down-fill"></i>
-            </button>
-            <div class="dropdown-container">
-                <div th:each="supplier,iterStat : ${suppliers}">
-                    <div><a th:href="'/index?supplier=' + ${supplier.id}" th:text="${supplier.name}"></a></div>
-                </div>
-            </div>
-            <a href="#">Contact</a>
-            <a href="#">About</a>
-        </div>
+<div id="index-content">
+    <div id="banner" class="jumbotron text-right">
+        <form action="cart" method="get">
+            <button class="btn btn-success" style="font-size:40px"><i class="bi bi-cart4"></i></button>
+        </form>
     </div>
-    <div class="grid-container">
-        <div id="products" class="row row-cols-4 row-cols-md-2">
-            <div class="col col-sm-4 col-md-8 col-lg d-flex align-items-stretch"
-                 th:each="prod,iterStat : ${allProducts}">
-                <div class="card">
-                    <img class="card-img-top" src="http://placehold.it/400x250/000/fff"
-                         th:attr="src='/static/img/product_' + ${prod.id} + '.jpg'" alt="" style="width:100%"/>
-                    <div class="card-header">
-                        <h5 class="card-title" th:text="${prod.name}">Product name</h5>
-                        <p class="card-text" th:text="${prod.description}">Product description... </p>
+
+    <div class="page-container">
+        <div id="navbar" class="sidenav">
+            <div class="my-navbar">
+                <a href="/">Products</a>
+                <button class="dropdown-btn category">Category
+                    <i class="bi bi-caret-down-fill"></i>
+                </button>
+                <div class="dropdown-container">
+                    <div th:each="category,iterStat : ${categories}">
+                        <div><a th:href="'/index?category=' + ${category.id}" th:text="${category.name}"></a></div>
                     </div>
-                    <div class="card-footer mt-auto">
-                        <p class="lead" th:text="${prod.getPrice()}">100 USD</p>
-                        <a class="btn btn-success" th:attr="href='/index?product=' + ${prod.id}">
-                            <i class="bi bi-cart4"></i>
-                        </a>
+                </div>
+                <button class="dropdown-btn supplier">Supplier
+                    <i class="bi bi-caret-down-fill"></i>
+                </button>
+                <div class="dropdown-container">
+                    <div th:each="supplier,iterStat : ${suppliers}">
+                        <div><a th:href="'/index?supplier=' + ${supplier.id}" th:text="${supplier.name}"></a></div>
+                    </div>
+                </div>
+                <a href="#">Contact</a>
+                <a href="#">About</a>
+            </div>
+        </div>
+        <div class="grid-container">
+            <div id="products" class="row row-cols-4 row-cols-md-2">
+                <div class="col col-sm-4 col-md-8 col-lg d-flex align-items-stretch"
+                     th:each="prod,iterStat : ${allProducts}">
+                    <div class="card">
+                        <img class="card-img-top" src="http://placehold.it/400x250/000/fff"
+                             th:attr="src='/static/img/product_' + ${prod.id} + '.jpg'" alt="" style="width:100%"/>
+                        <div class="card-header">
+                            <h5 class="card-title" th:text="${prod.name}">Product name</h5>
+                            <p class="card-text" th:text="${prod.description}">Product description... </p>
+                        </div>
+                        <div class="card-footer mt-auto">
+                            <p class="lead" th:text="${prod.getPrice()}">100 USD</p>
+                            <a class="btn btn-success" th:attr="href='/index?product=' + ${prod.id}">
+                                <i class="bi bi-cart4"></i>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
-<div class="footer">
-    <div th:replace="footer.html :: copy"></div>
+    <div class="footer">
+        <div th:replace="footer.html :: copy"></div>
+    </div>
 </div>
 <script src="static/js/style.js"></script>
 </body>

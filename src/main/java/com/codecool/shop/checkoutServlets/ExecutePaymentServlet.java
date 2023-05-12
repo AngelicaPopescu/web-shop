@@ -1,14 +1,17 @@
 package com.codecool.shop.checkoutServlets;
 
-import java.io.IOException;
-import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.*;
-
-import com.paypal.api.payments.*;
+import com.codecool.shop.payment.PaymentServices;
+import com.paypal.api.payments.PayerInfo;
+import com.paypal.api.payments.Payment;
+import com.paypal.api.payments.Transaction;
 import com.paypal.base.rest.PayPalRESTException;
 
-import com.codecool.shop.payment.PaymentServices;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 
 @WebServlet("PaypalTest/execute_payment")
 public class ExecutePaymentServlet extends HttpServlet {
@@ -30,7 +33,6 @@ public class ExecutePaymentServlet extends HttpServlet {
             Transaction transaction = payment.getTransactions().get(0);
             System.out.println(transaction.getAmount());
             System.out.println(transaction.getItemList());
-
 
             request.setAttribute("payer", payerInfo);
             request.setAttribute("transaction", transaction);

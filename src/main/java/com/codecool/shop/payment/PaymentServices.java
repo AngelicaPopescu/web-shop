@@ -1,12 +1,12 @@
 package com.codecool.shop.payment;
 
 
-import java.util.*;
-
-import com.codecool.shop.dao.CartDao;
-import com.codecool.shop.dao.implementation.CartDaoMem;
 import com.paypal.api.payments.*;
-import com.paypal.base.rest.*;
+import com.paypal.base.rest.APIContext;
+import com.paypal.base.rest.PayPalRESTException;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class PaymentServices {
     private static final String CLIENT_ID = "ASgKNupGDGzZxbFOZQd3cW_GDEmlhbNXs5doreq7HwsmAPEmxWzPnDX-l2Ata0Eu7RMlpHbcNq-3Ior4";
@@ -44,7 +44,6 @@ public class PaymentServices {
                 .setEmail("");
 
         payer.setPayerInfo(payerInfo);
-
         return payer;
     }
 
@@ -66,17 +65,7 @@ public class PaymentServices {
         amount.setCurrency("USD");
         amount.setTotal(orderDetail.getTotal());
 
-        CartDaoMem cartDataStore = CartDaoMem.getInstance();
-
-        // amount.setTotal(cartDataStore.getTotalSum());
-
-
-
-
-
         amount.setDetails(details);
-        System.out.println(details);
-        System.out.println(amount);
 
         Transaction transaction = new Transaction();
         transaction.setAmount(amount);

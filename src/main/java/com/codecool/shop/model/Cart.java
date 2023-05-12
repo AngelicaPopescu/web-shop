@@ -17,7 +17,6 @@ public class Cart extends BaseModel {
         this.cartDict = new HashMap<>();
     }
 
-    //adds 1 for each product sected for cart with add to cart button
     public void addtoCart (Product product) {
         cartDict.merge(product, 1, Integer::sum);
     }
