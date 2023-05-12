@@ -21,4 +21,9 @@ public interface CartDao {
 
     HashMap<Product, Integer> getAll();
 
+
+    void setDiscount(Integer discount);
+
+    Integer getDiscount ();
+
 }
